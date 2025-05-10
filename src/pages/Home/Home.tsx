@@ -1,14 +1,14 @@
 import React, { useCallback, useState } from "react";
 
-import useAdvice from "../hooks/useAdvice";
-import SavedAdvice from "../components/SavedAdvice";
+import useAdvice from "../../hooks/useAdvice";
+import SavedAdvice from "../../components/SavedAdvice";
 
 import { HomeContainer } from "./home.style";
 import { useDispatch, useSelector } from "react-redux";
-import { addSavedAdvice } from "../redux/SliceRedux/savedAdvice";
+import { addSavedAdvice } from "../../redux/SliceRedux/savedAdvice";
 
 function Home() {
-  const [isOpenSavedList, setIsOpenSavedList] = useState(false);
+  const [isOpenSavedList, setIsOpenSavedList] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   const {

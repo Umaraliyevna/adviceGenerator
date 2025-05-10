@@ -6,9 +6,10 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 import { SavedContainer } from "./savedAdvice.style";
 import { useDispatch, useSelector } from "react-redux";
 import { removeSavedAdvice } from "../redux/SliceRedux/savedAdvice";
+import { useAppSelector } from "../hooks/reduxHook";
 
 function SavedAdvice({ closeSavedAdviceList }) {
-  const saved = useSelector((store) => store.savedAdvice);
+  const saved = useAppSelector((store) => store.advice);
   const dispatch = useDispatch();
 
   const removeAdvice = (advice) => {
@@ -22,15 +23,9 @@ function SavedAdvice({ closeSavedAdviceList }) {
       <h1>Saved Advice</h1>
 
       {saved.length > 0 ? (
-        <ol style={{ padding: 0 }}>
+        <ul style={{ padding: 0 }}>
           {saved.map((advice) => (
-            <li
-              style={{
-                margin: "10px 0",
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
+            <li key={advice}>
               <span>{advice}</span>
               <RiDeleteBin5Fill
                 onClick={() => removeAdvice(advice)}
@@ -38,7 +33,7 @@ function SavedAdvice({ closeSavedAdviceList }) {
               />
             </li>
           ))}
-        </ol>
+        </ul>
       ) : (
         <p>No saved advice yet</p>
       )}

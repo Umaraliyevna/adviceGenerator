@@ -37,8 +37,23 @@ export const SavedContainer = styled.div`
     align-items: center;
     gap: 0.5rem;
   }
+  ul {
+    width: 100%;
+  }
 
+  ul li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+  }
+
+  ul li span {
+    width: fit-content;
+  }
   .deleteBtn {
     cursor: pointer;
+    font-size: 20px;
   }
 `;
